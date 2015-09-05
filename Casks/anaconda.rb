@@ -11,7 +11,7 @@ cask :v1 => 'anaconda' do
   container :type => :naked
 
   preflight do
-    system '/bin/chmod', '--', '755', "#{staged_path}/Anaconda-#{version}-MacOSX-x86_64.sh"
+    set_permissions "#{staged_path}/Anaconda-#{version}-MacOSX-x86_64.sh", '+x'
   end
 
   installer :script => "Anaconda-#{version}-MacOSX-x86_64.sh",
